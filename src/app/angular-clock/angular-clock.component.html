@@ -1,0 +1,52 @@
+<div class="center bg-black main">
+  <div class="container bg-primary">
+    <h1 class="center">stop watch</h1>
+    <h3 class="center">click the stop button to stop the clock</h3>
+    <hr />
+    <div class="center">
+      <div class="bg-black col-12 col-md-12 col-lg-9 center">
+        <div class="center text-danger fs-1">
+          {{ time.houres < 10 ? "0" + time.houres : time.houres }}
+          <span>:</span>
+        </div>
+        <div class="center text-danger fs-1">
+          {{ time.minutes < 10 ? "0" + time.minutes : time.minutes }}
+          <span>:</span>
+        </div>
+        <div class="center text-danger fs-1">
+          {{ time.secocnds < 10 ? "0" + time.secocnds : time.secocnds }}
+          <span>:</span>
+        </div>
+        <div class="center text-danger fs-1">
+          {{
+            time.milliSeconds < 10 ? "0" + time.milliSeconds : time.milliSeconds
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <div class="center my-3 alert-info rounded p-2 col-12 col-md-9 col-lg-6">
+        <div class="row">
+          <button
+            class="btn btn-success me-3 my-2 col-12 col-md-3"
+            (click)="start()"
+          >
+            start
+          </button>
+          <button
+            class="btn btn-danger me-3 col-12 col-md-3 my-2"
+            (click)="handleInterval('stop')"
+          >
+            stop
+          </button>
+          <button
+            class="btn btn-primary me-3 col-12 col-md-3 my-2"
+            (click)="reset()"
+          >
+            reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

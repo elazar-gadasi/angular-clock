@@ -1,0 +1,126 @@
+<div class="center main bg-black">
+  <div class="container bg-primary">
+    <div class="alert-info">
+      <h1 class="center">timer watch</h1>
+      <h3 class="center">click the stop button to stop the clock</h3>
+      <hr />
+    </div>
+    <form class="my-3 center alert-info">
+      <label id="houres">houres</label>
+      <select class="mx-1" name="houres" id="houres" [(ngModel)]="time.houres">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+      </select>
+
+      <label id="minutes">minutes</label>
+      <select
+        class="mx-1"
+        name="minutes"
+        id="minutes"
+        [(ngModel)]="time.minutes"
+      >
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+      </select>
+      <label id="secocnds">secocnds</label>
+      <select
+        class="mx-1"
+        name="secocnds"
+        id="secocnds"
+        [(ngModel)]="time.secocnds"
+      >
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+      </select>
+    </form>
+
+    <!-- //// -->
+
+    <!-- <form>
+    <label id="secocnds">secocnds</label>
+    <input
+      [(ngModel)]="time.secocnds"
+      type="number"
+      id="secocnds"
+      name="secocnds"
+      class="form-control"
+    />
+
+    <label id="minutes">minutes</label>
+    <input
+      [(ngModel)]="time.minutes"
+      type="number"
+      id="minutes"
+      name="minutes"
+      class="form-control"
+    />
+
+    <label id="houres">houres</label>
+    <input
+      [(ngModel)]="time.houres"
+      type="number"
+      id="houres"
+      name="houres"
+      class="form-control"
+    />
+  </form> -->
+
+    <!-- ///// -->
+    <div class="center">
+      <div
+        class="bg-black col-12 col-md-12 col-lg-9 center center fs-1 text-success"
+        [ngClass]="
+          time.secocnds > 0 && time.secocnds <= 10 && time.minutes === 0
+            ? 'text-danger'
+            : 'text-success'
+        "
+      >
+        {{ time.houres < 10 ? "0" + time.houres : time.houres }}
+        :
+
+        {{ time.minutes < 10 ? "0" + time.minutes : time.minutes }}
+        :
+
+        {{ time.secocnds < 10 ? "0" + time.secocnds : time.secocnds }}
+      </div>
+    </div>
+
+    <!-- /// -->
+    <div class="center">
+      <div class="center my-3 alert-info rounded p-2 col-12 col-md-9 col-lg-6">
+        <div class="row">
+          <button
+            class="btn btn-success me-3 my-2 col-12 col-md-3"
+            (click)="start()"
+          >
+            start
+          </button>
+          <button
+            class="btn btn-danger me-3 col-12 col-md-3 my-2"
+            (click)="handleInterval('stop')"
+          >
+            stop
+          </button>
+          <button
+            class="btn btn-primary me-3 col-12 col-md-3 my-2"
+            (click)="reset()"
+          >
+            reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
